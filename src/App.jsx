@@ -7,62 +7,75 @@ import Counter from './counter'
 import Batsman from './batsman'
 import Users from './users'
 import Friends from './friends'
+import Posts from './posts'
 
-const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
-.then(res => res.json())
+// const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
+// .then(res => res.json())
 
-const fetchFriends = async()=>{
-    const res = await fetch('https://jsonplaceholder.typicode.com/users');
-    return res.json();
+// const fetchFriends = async()=>{
+//     const res = await fetch('https://jsonplaceholder.typicode.com/users');
+//     return res.json();
+// }
+
+const fetchPosts = async() =>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  return res.json();
 }
 
 function App() {
 
-  const friendPromise = fetchFriends();
+  const postPromise = fetchPosts();
 
-  function handleClick(){
-    alert("I am Clicked")
-  }
+  // const friendPromise = fetchFriends();
 
-  const handleClick3 = () => {
-    alert("click 3")
-  }
+  // function handleClick(){
+  //   alert("I am Clicked")
+  // }
 
-  const handleSum = (num)=>{
-    const newNum = num+5;
-    alert(newNum);
-  }
+  // const handleClick3 = () => {
+  //   alert("click 3")
+  // }
+
+  // const handleSum = (num)=>{
+  //   const newNum = num+5;
+  //   alert(newNum);
+  // }
 
   return (
     <>
       <h3>Vite + React</h3>
 
-      {/* friends */}
-      <Suspense fallback={<h3>Friends are coming...</h3>}>
-        <Friends friendPromise={friendPromise}></Friends>
+      {/* posts */}
+      <Suspense fallback={<h4>Post are coming...</h4>}>
+          <Posts postPromise={postPromise}></Posts>
       </Suspense>
 
+      {/* friends */}
+      {/* <Suspense fallback={<h3>Friends are coming...</h3>}>
+        <Friends friendPromise={friendPromise}></Friends>
+      </Suspense> */}
+
       {/* users */}
-      <Suspense fallback={<h3>loading...</h3>}>
+      {/* <Suspense fallback={<h3>loading...</h3>}>
         <Users fetchUsers={fetchUsers}></Users>
-      </Suspense>
+      </Suspense> */}
       
       {/* batsman */}
-      <Batsman></Batsman>
+      {/* <Batsman></Batsman> */}
 
 
       {/* counter */}
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
       
       {/* using regular function */}
-      <button className='btn' onClick={handleClick}>Click Me</button>
-      <button className='btn' onClick={handleClick3}>Click Me2</button>
+      {/* <button className='btn' onClick={handleClick}>Click Me</button>
+      <button className='btn' onClick={handleClick3}>Click Me2</button> */}
 
       {/* shortcut- using arrow function */}
-      <button className='btn' onClick={()=>alert('click 4')}>Click 4</button>
+      {/* <button className='btn' onClick={()=>alert('click 4')}>Click 4</button> */}
 
       {/* sum */}
-      <button className='btn' onClick={()=>handleSum(7)}>Sum</button>
+      {/* <button className='btn' onClick={()=>handleSum(7)}>Sum</button> */}
     </>
   )
 }
