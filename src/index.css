@@ -119,3 +119,7 @@ code {
   background-color: rgb(63, 63, 63);
   margin-bottom: 10px;
 }
+
+.scorebtn{
+  display: flex;
+}

@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Counter from './counter'
+import Batsman from './batsman'
 
 function App() {
   function handleClick(){
@@ -21,6 +23,13 @@ function App() {
   return (
     <>
       <h3>Vite + React</h3>
+      
+      {/* batsman */}
+      <Batsman></Batsman>
+
+
+      {/* counter */}
+      <Counter></Counter>
       
       {/* using regular function */}
       <button className='btn' onClick={handleClick}>Click Me</button>
